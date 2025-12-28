@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>異界神獸契約所 - 尋找傳奇夥伴</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="異界神獸契約所 Logo">
+            </a>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="adoption.html">契約搜尋</a></li>
+                <li><a href="education.html">神獸指南</a></li>
+                <li><a href="contact.html">聯繫分部</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-header" style="text-align: center; margin: 40px 0;">
+            <h2 style="color: #666; font-weight: normal; font-size: 1.8rem;">
+                <span style="color: #d1d1d1;">⚡</span> 召喚傳奇神獸 <span style="color: #d1d1d1;">⚡</span>
+            </h2>
+            <div style="height: 1px; width: 300px; background: #ddd; margin: 15px auto;"></div>
+        </div>
+
+        <div class="search-panel">
+            <form id="searchForm">
+                <div class="search-top-row">
+                    <div class="search-label"><i class="fas fa-search"></i> 請選擇召喚對象</div>
+                    <div class="radio-group">
+                        <label><input type="radio" name="type" value="all" checked> 全部神獸</label>
+                        <label><input type="radio" name="type" value="dog"> 地獄犬</label>
+                        <label><input type="radio" name="type" value="cat"> 噬元獸</label>
+                        <label><input type="radio" name="type" value="other"> 舊日支配者</label>
+                    </div>
+                    <button type="button" class="btn-outline">選擇血統/種族</button>
+                </div>
+
+                <div class="search-grid">
+                    <div class="form-group">
+                        <label>出沒地點</label>
+                        <select id="filter-location" class="btn-select" style="width:100%">
+                            <option value="all">全台灣</option>
+                            <option value="Taipei">臺北市</option>
+                            <option value="NewTaipei">新北市</option>
+                            <option value="Taichung">臺中市</option>
+                            <option value="Tainan">臺南市</option>
+                            <option value="Kaohsiung">高雄市</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>收容據點</label>
+                        <select id="filter-shelter" class="form-control">
+                            <option value="all">-- 選擇收容所 --</option>
+                            <option value="51">第 51 區外星收容分部</option>
+                            <option value="Asgard">阿斯加德神獸照護中心</option>
+                            <option value="Hogwarts">霍格華茲奇獸飼育場</option>
+                            <option value="SCP">SCP 基金會收容站點-19</option>
+                            <option value="Jurassic">侏羅紀公園後勤處</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>神獸性別</label>
+                        <select id="filter-gender" class="btn-select" style="width:100%">
+                            <option value="all">不限</option>
+                            <option value="male">公</option>
+                            <option value="female">母</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>修煉年齡</label>
+                        <select id="filter-age" class="btn-select" style="width:100%">
+                            <option value="all">不限</option>
+                            <option value="child">幼年 (1歲以下)</option>
+                            <option value="adult">成年 (1歲以上)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>來源星系</label>
+                        <div style="display:flex; gap:5px; width: 100%;">
+                            <select id="city-select" class="btn-select" style="flex:1">
+                                <option value="">請選擇縣市</option>
+                                <option value="Taipei">臺北市</option>
+                                <option value="NewTaipei">新北市</option>
+                                <option value="Taichung">臺中市</option>
+                                <option value="Tainan">臺南市</option>
+                                <option value="Kaohsiung">高雄市</option>
+                            </select>
+                            
+                            <select id="area-select" class="btn-select" style="flex:1">
+                                <option value="">請選擇區域</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>聖衣花色</label>
+                        <input type="text" id="filter-color" class="form-control" placeholder="例如：虛空黑">
+                    </div>
+                    <div class="form-group">
+                        <label>召喚編號</label>
+                        <input type="text" id="filter-id" class="form-control underline-input" placeholder="召喚編號">
+                    </div>
+                    <div class="form-group">
+                        <label>靈魂綁定碼</label>
+                        <input type="text" class="form-control underline-input" placeholder="晶片號碼">
+                    </div>
+                </div>
+
+                <div class="search-footer">
+                    <button type="submit" class="btn-search">開始召喚儀式</button>
+                    <button type="button" id="randomBtn" class="btn-outline" style="margin-left: 10px; border-color: var(--primary-color); color: var(--primary-color); font-weight: bold;">
+                        🎲 命運隨機召喚
+                    </button>
+                    <button type="button" id="resetBtn" class="btn-outline" style="margin-left: 10px; border:none; background:transparent; color:#666; text-decoration:underline;">重置咒語</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="results-wrapper" style="margin-top: 40px;">
+            <section style="flex: 3;">
+                <h3 style="margin-bottom: 20px;">等待簽訂契約的使魔 (共 20 隻)</h3>
+                
+                <div id="pet-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px;">
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="黑" data-id="D-01"
+                         data-location="Tainan" data-shelter="SCP" data-city="Tainan" data-area="安南區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-01.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">銀河衛星毀滅者 (D-01)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 2歲 / 專長：咬壞衛星天線</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="female" data-age="adult" data-color="白" data-id="D-02"
+                         data-location="Taipei" data-shelter="51" data-city="Taipei" data-area="信義區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-02.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">賈科米諾 星系與超空間的守護者 (D-02)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 1歲 / 守護範圍：客廳沙發</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="黃" data-id="D-03"
+                         data-location="Kaohsiung" data-shelter="Hogwarts" data-city="Kaohsiung" data-area="左營區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-03.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">地獄三頭犬的遠房表弟 (D-03)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 3歲 / 只有一顆頭</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="混色" data-id="D-04"
+                         data-location="Taichung" data-shelter="Jurassic" data-city="Taichung" data-area="西屯區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-04.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">核能驅動柴油機 (D-04)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 5歲 / 呼嚕聲像拖拉機</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="female" data-age="child" data-color="米色" data-id="D-05"
+                         data-location="NewTaipei" data-shelter="Asgard" data-city="NewTaipei" data-area="板橋區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-05.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">量子糾纏態的阿土 (D-05)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 4個月 / 既在又不在</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="黑" data-id="D-06"
+                         data-location="Taipei" data-shelter="SCP" data-city="Taipei" data-area="大安區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-06.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">虛空吞噬者·史萊姆 (D-06)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 1歲 / 專吃拖鞋</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="深褐" data-id="D-07"
+                         data-location="Kaohsiung" data-shelter="Jurassic" data-city="Kaohsiung" data-area="旗津區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-07.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">統治七海的傑克船長 (D-07)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 4歲 / 怕水</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="female" data-age="adult" data-color="灰" data-id="D-08"
+                         data-location="Tainan" data-shelter="51" data-city="Tainan" data-area="東區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-08.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">審判日·終結者T-800 (D-08)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 2歲 / 會說 I'll be back</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="黃" data-id="D-09"
+                         data-location="NewTaipei" data-shelter="Hogwarts" data-city="NewTaipei" data-area="新店區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-09.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">五維空間的觀測者 (D-09)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 3歲 / 喜歡盯著牆角看</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="dog" data-gender="male" data-age="adult" data-color="混色" data-id="D-10"
+                         data-location="Taichung" data-shelter="Asgard" data-city="Taichung" data-area="北區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/dog-10.jpg" alt="Dog" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">宇宙大爆炸的起源 (D-10)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 6歲 / 忠誠</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">簽訂契約</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="female" data-age="adult" data-color="虎斑" data-id="C-01"
+                         data-location="Tainan" data-shelter="Hogwarts" data-city="Tainan" data-area="中西區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-01.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">天鵝絨爪毛絨絨的施努爾米內爾瓦大公爵夫人 (C-01)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 2歲 / 貴族血統</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="female" data-age="adult" data-color="三花" data-id="C-02"
+                         data-location="Taipei" data-shelter="Jurassic" data-city="Taipei" data-area="松山區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-02.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">神奇的起司巫師戴夫 (C-02)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 1歲 / 會施展貪吃咒</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="male" data-age="adult" data-color="橘色" data-id="C-03"
+                         data-location="Kaohsiung" data-shelter="51" data-city="Kaohsiung" data-area="三民區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-03.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">薩諾斯·無限手套持有者 (C-03)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 5歲 / 一彈指罐頭消失</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="male" data-age="adult" data-color="黑" data-id="C-04"
+                         data-location="NewTaipei" data-shelter="SCP" data-city="NewTaipei" data-area="永和區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-04.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">來自深淵的煤炭爵士 (C-04)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 2歲 / 晚上會隱形</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="female" data-age="adult" data-color="白" data-id="C-05"
+                         data-location="Taichung" data-shelter="Asgard" data-city="Taichung" data-area="南屯區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-05.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">支配者·罐頭粉碎機 (C-05)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 3歲 / 戰力破表</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="male" data-age="adult" data-color="賓士" data-id="C-06"
+                         data-location="Taipei" data-shelter="Hogwarts" data-city="Taipei" data-area="文山區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-06.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">神聖羅馬帝國皇帝 (C-06)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 1歲 / 既不神聖也不羅馬</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="male" data-age="adult" data-color="虎斑" data-id="C-07"
+                         data-location="Kaohsiung" data-shelter="SCP" data-city="Kaohsiung" data-area="鼓山區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-07.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">混沌與秩序的編織者 (C-07)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 4歲 / 專門打翻水杯</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="female" data-age="child" data-color="白" data-id="C-08"
+                         data-location="Tainan" data-shelter="Jurassic" data-city="Tainan" data-area="安平區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-08.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">不可名狀的克蘇魯 (C-08)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 2個月 / San值狂掉</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="female" data-age="adult" data-color="玳瑁" data-id="C-09"
+                         data-location="NewTaipei" data-shelter="51" data-city="NewTaipei" data-area="淡水區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-09.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">跨維度旅行者·露露 (C-09)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">母 / 3歲 / 經常消失在衣櫃</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                    <div class="pet-card" 
+                         data-species="cat" data-gender="male" data-age="adult" data-color="藍貓" data-id="C-10"
+                         data-location="Taichung" data-shelter="Asgard" data-city="Taichung" data-area="豐原區"
+                         style="background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <img src="images/cat-10.jpg" alt="Cat" style="height: 200px; object-fit: cover; width: 100%;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 1.1rem; line-height: 1.3;">噬元獸·大頭 (C-10)</h4>
+                            <p style="font-size: 0.9rem; color: #666;">公 / 6歲 / 危險勿近</p>
+                            <a href="details.html" class="btn" style="margin-top: 10px; width: 100%; text-align: center;">覲見</a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div id="no-results" style="display: none; text-align: center; margin-top: 50px; color: #666;">
+                    <h3>⚠️ 偵測不到符合條件的生命體訊號...</h3>
+                    <p>請嘗試重新調整您的召喚咒語 (篩選條件)</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>© 2025 異界神獸契約所</footer>
+    <script src="script.js"></script>
+</body>
+</html>

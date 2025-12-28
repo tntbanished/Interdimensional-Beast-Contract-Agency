@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>異界神獸契約所 - 聯繫分部</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="異界神獸契約所 Logo">
+            </a>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="adoption.html">契約搜尋</a></li>
+                <li><a href="education.html">神獸指南</a></li>
+                <li><a href="contact.html">聯繫分部</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section style="margin: 40px 0; text-align: center;">
+            <h1 style="color: var(--primary-color);">📡 分部聯絡終端</h1>
+            <p style="max-width: 800px; margin: 20px auto; color: #555;">
+                若您在召喚過程中遇到障礙，或想通報野生神獸出沒，請透過下方終端傳送靈訊。我們的使魔將在 24 小時內回應您的召喚。
+            </p>
+        </section>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 40px; margin-bottom: 60px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="border-left: 5px solid var(--primary-color); padding-left: 15px; margin-bottom: 20px;">
+                    📍 異界傳送座標
+                </h2>
+                <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px;">
+                    <p style="margin-bottom: 10px;"><strong>總部位置：</strong> 台南市安南區異次元入口 123 號</p>
+                    <p style="margin-bottom: 10px;"><strong>開放時間：</strong> 太陽升起 至 月亮落下 (09:00 - 18:00)</p>
+                    <p><strong>緊急召喚：</strong> (06) 1234-5678</p>
+                </div>
+                
+                <iframe 
+                    src="https://maps.google.com/maps?q=台南市安南區&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    width="100%" height="350" style="border:0; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">📨 傳送靈訊</h2>
+                <form>
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 5px;">契約者代號 (您的姓名)</label>
+                        <input type="text" placeholder="請輸入您的代號" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 5px;">靈力傳輸頻段 (Email)</label>
+                        <input type="email" placeholder="example@magic.com" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 5px;">召喚咒語 / 需求內容</label>
+                        <textarea rows="6" placeholder="請詳細描述您遇到的異象，或是想預約看視的神獸編號..." style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="button" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;" onclick="alert('⚡ 靈訊已成功發送！\n\n分部使魔已接收到您的召喚，將盡快透過靈力頻段（Email）回覆您。')">
+                        發送靈訊
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2025 異界神獸契約所</footer>
+    <script src="script.js"></script>
+</body>
+</html>

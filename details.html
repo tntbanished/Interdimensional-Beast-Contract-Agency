@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>異界神獸契約所 - 神獸詳情</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="異界神獸契約所 Logo">
+            </a>
+            <div class="hamburger">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="adoption.html">契約搜尋</a></li>
+                <li><a href="education.html">神獸指南</a></li>
+                <li><a href="contact.html">聯繫分部</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" style="margin-top: 30px;">
+        <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img id="detail-img" src="" alt="神獸照片" style="border-radius: 10px; margin-bottom: 20px; width: 100%; object-fit: cover;">
+                    
+                    <div style="background: #000; color: #fff; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 10px; text-align: center; padding: 20px;">
+                        <span id="detail-video-text">[ 正在讀取異次元影像紀錄... ]</span>
+                    </div>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px;">
+                    <h1 style="color: var(--primary-color); margin-bottom: 10px;">
+                        <span id="detail-name">載入中...</span> 
+                        <span style="font-size: 1rem; color: #666;">(編號: <span id="detail-id">--</span>)</span>
+                    </h1>
+                    <p style="margin-bottom: 20px; font-weight: bold;">
+                        靈魂綁定碼：<span id="detail-chip">讀取中...</span>
+                    </p>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">性別</td><td id="detail-gender">--</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">修煉年齡</td><td id="detail-age">--</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">聖衣花色</td><td id="detail-color">--</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">出沒地點</td><td id="detail-location">--</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">收容據點</td><td id="detail-shelter">--</td></tr>
+                        <tr style="border-bottom: 1px solid #eee;"><td style="padding: 10px; font-weight:bold;">來源星系</td><td id="detail-origin">--</td></tr>
+                    </table>
+
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                        <strong>健康狀況：</strong> <span id="detail-health">掃描中...</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <strong>性格與傳說：</strong>
+                        <p id="detail-desc" style="margin-top: 5px; color: #555;">--</p>
+                    </div>
+
+                    <button class="btn" style="padding: 15px 30px; font-size: 1.2rem;" onclick="alert('契約申請書已送往異世界管理局！')">簽訂靈魂契約</button>
+                    <a href="adoption.html" class="btn-outline" style="margin-left: 10px; text-decoration: none; padding: 14px 20px; display: inline-block;">返回搜尋</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2025 異界神獸契約所</footer>
+    <script src="script.js"></script>
+</body>
+</html>
